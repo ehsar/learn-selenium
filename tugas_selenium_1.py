@@ -2,7 +2,13 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-urls = [
+options = webdriver.ChromeOptions()
+options.add_experimental_option('detach', True)
+
+driver = webdriver.Chrome(options=options)
+driver.minimize_window()
+
+listUrl = [
     "https://www.tiket.com",
     "https://www.tokopedia.com",
     "https://www.orangsiber.com",
@@ -10,13 +16,7 @@ urls = [
     "https://www.kelasotomesyen.com"
 ]
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option('detach', True)
-
-driver = webdriver.Chrome(options=options)
-driver.minimize_window()
-
-for url in urls:
+for url in listUrl:
     driver.get(url)
     sleep(2)
     title = driver.title
