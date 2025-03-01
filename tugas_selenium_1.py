@@ -23,4 +23,4 @@ for url in urls:
     trimmedUrl = url.replace("https://", "").replace("www.", "")
     print(f"{trimmedUrl} - {title}")
 
-driver.close()
+driver.quit()
