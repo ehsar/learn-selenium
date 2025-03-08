@@ -29,38 +29,38 @@ try:
     driver.get("https://demoqa.com/alerts")
 
     # Simple Alert
-    alert_button1 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "alertButton")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", alert_button1)
-    alert_button1.click()
+    alertButton1 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "alertButton")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", alertButton1)
+    alertButton1.click()
     handle_alert('accept')
 
     # Timer Alert 5 Detik
-    alert_button2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "timerAlertButton")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", alert_button2)
-    alert_button2.click()
+    alertButton2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "timerAlertButton")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", alertButton2)
+    alertButton2.click()
     handle_alert('accept')
 
     # Confirm Alert (OK)
-    alert_button3 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "confirmButton")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", alert_button3)
-    alert_button3.click()
+    alertButton3 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "confirmButton")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", alertButton3)
+    alertButton3.click()
     handle_alert('accept')
-    response_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "confirmResult")))
-    print("Confirm alert accept - Response Text:", response_text.text)
+    response = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "confirmResult")))
+    print("Confirm alert accept - Response Text:", response.text)
 
     # Confirm Alert (Cancel)
-    alert_button3.click()
+    alertButton3.click()
     handle_alert('dismiss')
-    response_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "confirmResult")))
-    print("Confirm alert dismiss - Response Text:", response_text.text)
+    response = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "confirmResult")))
+    print("Confirm alert dismiss - Response Text:", response.text)
 
     # Prompt Alert
-    alert_button4 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "promtButton")))
-    driver.execute_script("arguments[0].scrollIntoView(true);", alert_button4)
-    alert_button4.click()
+    alertButton4 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "promtButton")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", alertButton4)
+    alertButton4.click()
     handle_alert('accept', input_text="Bersama saya dimari!")
-    response_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "promptResult")))
-    print("Prompt alert - Response Text:", response_text.text)
+    response = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "promptResult")))
+    print("Prompt alert - Response Text:", response.text)
 
 except Exception as e:
     print("Terjadi error:", e)
